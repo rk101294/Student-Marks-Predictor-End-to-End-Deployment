@@ -33,7 +33,12 @@ def predict():
     if input_features[0] <0 or input_features[0] >24:
         return render_template('index.html', prediction_text='Please enter valid hours between 1 to 24 if you live on the Earth')
     
-    output = model.predict([value])[0][0].round(2)
+    out_p = model.predict([value])[0][0].round(2)
+    
+    if out_p>100:
+        output=100
+    else:
+        output=out_p
    # df=pd.concat([df,pd.DataFrame({'Study Hours':input_features,"Predicted Output":[output]})])
     #print(df)
     #df.to_csv("smp_data_from_app.csv")
