@@ -30,7 +30,7 @@ def predict():
     input_features = [float(x) for x in request.form.values()]
     value = np.array(input_features)
     
-    if input_features[0] <0 or input_features[0] >24:
+    if input_features[0] <1 or input_features[0] >24:
         return render_template('index.html', prediction_text='Please enter valid hours between 1 to 24')
     
     out_p = model.predict([value])[0][0].round(2)
