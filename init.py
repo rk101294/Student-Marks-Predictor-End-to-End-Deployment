@@ -31,7 +31,7 @@ def predict():
     value = np.array(input_features)
     
     if input_features[0] <0 or input_features[0] >24:
-        return render_template('index.html', prediction_text='Please enter valid hours between 1 to 24 if you live on the Earth')
+        return render_template('index.html', prediction_text='Please enter valid hours between 1 to 24')
     
     out_p = model.predict([value])[0][0].round(2)
     
